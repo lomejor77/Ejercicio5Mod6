@@ -24,11 +24,21 @@ class ListFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentListBinding.inflate(layoutInflater, container, false)
-
+        initAdapter()
         binding.btn.setOnClickListener {
             terrenoVM.getAllTerrenos()
         }
+
         return binding.root
+    }
+
+    private fun initAdapter() {
+        terrenoVM.getAllTerrenos()
+        val adapter = AdapterTerreno()
+        binding.recyclerView.adapter = adapter
+        terrenoVM.terrenoLiveData.observe(viewLifecycleOwner) {
+            adapter.setData(it)
+        }
     }
 
 }
