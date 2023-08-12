@@ -37,7 +37,10 @@ class AdapterTerreno: RecyclerView.Adapter<AdapterTerreno.ItemTerrenoViewHolder>
 
     class ItemTerrenoViewHolder(private val v: ItemTerrenoBinding): RecyclerView.ViewHolder(v.root) {
         fun bind(terreno: Terreno){
-            v.imgTerreno.load(terreno.img_src)
+            v.itemImage.load(terreno.img_src)
+            v.itemTitle.text = terreno.type
+            v.itemDetail.text = terreno.price.toString()
+            v.itemId.text = terreno.id
 
         }
     }
