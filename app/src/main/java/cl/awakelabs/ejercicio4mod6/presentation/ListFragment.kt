@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import cl.awakelabs.ejercicio4mod6.R
 import cl.awakelabs.ejercicio4mod6.databinding.FragmentListBinding
 
 class ListFragment : Fragment() {
@@ -33,10 +32,10 @@ class ListFragment : Fragment() {
     }
 
     private fun initAdapter() {
-        //terrenoVM.getAllTerrenos()
+       //terrenoVM.getAllTerrenos()
         val adapter = AdapterTerreno()
         binding.recyclerView.adapter = adapter
-        terrenoVM.terrenoLiveData.observe(viewLifecycleOwner) {
+        terrenoVM.terrenosLiveData().observe(viewLifecycleOwner) {
             adapter.setData(it)
         }
     }

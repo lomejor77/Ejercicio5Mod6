@@ -21,7 +21,7 @@ abstract class TerrenoDB : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     TerrenoDB::class.java,
-                    "race_database"
+                    "terrenos_database"
                 ).build()
 
                 INSTANCE = instance

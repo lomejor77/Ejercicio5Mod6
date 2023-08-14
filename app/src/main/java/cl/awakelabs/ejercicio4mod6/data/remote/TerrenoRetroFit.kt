@@ -9,12 +9,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 class TerrenoRetroFit {
     companion object{
         private const val URL_BASE = "https://android-kotlin-fun-mars-server.appspot.com/"
-
         fun getRetroFitClient() : APITerreno {
-            val mRetroFit = Retrofit.Builder()
-                .baseUrl(URL_BASE)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+            val mRetroFit = Retrofit.Builder().baseUrl(URL_BASE)
+                .addConverterFactory(GsonConverterFactory.create()).build()
             return mRetroFit.create(APITerreno::class.java)
         }
     }

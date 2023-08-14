@@ -7,7 +7,7 @@ import okhttp3.Response
 import retrofit2.http.GET
 
 interface APITerreno {
-    @GET("realestate")
+    @GET("realestate/")
 
    suspend fun getData(): retrofit2.Response<List<Terreno>>
 }
