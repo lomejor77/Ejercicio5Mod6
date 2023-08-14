@@ -4,13 +4,10 @@ package cl.awakelabs.ejercicio4mod6.presentation
  * */
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import cl.awakelabs.ejercicio4mod6.Repository
 import cl.awakelabs.ejercicio4mod6.data.local.TerrenoDAO
 import cl.awakelabs.ejercicio4mod6.data.local.TerrenoDB
-import cl.awakelabs.ejercicio4mod6.data.local.TerrenoEntity
-import cl.awakelabs.ejercicio4mod6.data.remote.Terreno
 import cl.awakelabs.ejercicio4mod6.data.remote.TerrenoRetroFit
 import kotlinx.coroutines.launch
 
@@ -31,6 +28,7 @@ class TerrenoVM(application: Application) : AndroidViewModel(application) {
      */
     fun getAllTerrenos() = viewModelScope.launch {repository.getTerrenos()  }
     fun terrenosLiveData() = repository.obtainTerrenos()
+    fun idTerrenoLiveData(id: String) = repository.obtainIdTerreno(id)
 
 
 

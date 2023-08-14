@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:text="lista"
             android:textColor="@color/white"
-            android:id="@+id/item_detail"
+            android:id="@+id/item_price"
             android:layout_toEndOf="@+id/item_image"
             android:layout_toRightOf="@+id/item_image"
             android:layout_below="@id/item_title"

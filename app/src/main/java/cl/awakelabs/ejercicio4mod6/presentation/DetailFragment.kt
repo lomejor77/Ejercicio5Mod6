@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import cl.awakelabs.ejercicio4mod6.R
 import cl.awakelabs.ejercicio4mod6.databinding.FragmentDetailBinding
+import coil.load
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -39,7 +39,13 @@ class DetailFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentDetailBinding.inflate(layoutInflater, container, false)
-        binding.titleDetail.text = param1
+        terrenoVM.idTerrenoLiveData(param1.toString()).observe(viewLifecycleOwner) {
+            binding.itemId.text = it.id
+            binding.itemTitle.text = it.type
+            binding.itemPrice.text = it.price.toString()
+            binding.itemImage.load(it.img_src)
+        }
+
         return binding.root
     }
 

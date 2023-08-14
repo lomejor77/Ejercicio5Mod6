@@ -43,8 +43,9 @@ class AdapterTerreno: RecyclerView.Adapter<AdapterTerreno.ItemTerrenoViewHolder>
         fun bind(terreno: TerrenoEntity){
             v.itemImage.load(terreno.img_src)
             v.itemTitle.text = terreno.type
-            v.itemDetail.text = terreno.price.toString()
+            v.itemPrice.text = terreno.price.toString()
             v.itemId.text = terreno.id
+
             v.cardView.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putString("id", terreno.id)
