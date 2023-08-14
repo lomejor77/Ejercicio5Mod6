@@ -1,8 +1,11 @@
 package cl.awakelabs.ejercicio4mod6.presentation
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import cl.awakelabs.ejercicio4mod6.R
 import cl.awakelabs.ejercicio4mod6.data.local.TerrenoEntity
 import cl.awakelabs.ejercicio4mod6.data.remote.Terreno
 import cl.awakelabs.ejercicio4mod6.databinding.ItemTerrenoBinding
@@ -42,6 +45,11 @@ class AdapterTerreno: RecyclerView.Adapter<AdapterTerreno.ItemTerrenoViewHolder>
             v.itemTitle.text = terreno.type
             v.itemDetail.text = terreno.price.toString()
             v.itemId.text = terreno.id
+            v.cardView.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString("id", terreno.id)
+                Navigation.findNavController(v.root).navigate(R.id.action_listFragment_to_detailFragment, bundle)
+            }
 
         }
     }
